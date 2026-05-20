@@ -13,11 +13,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ── Security ──────────────────────────────────────────────────────────────────
 # ← YOUR secret key (generate with: python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())")
-SECRET_KEY = "django-insecure-replace-me-before-deploying"
+import os
 
-DEBUG = True   # ← Set to False in production
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-local-dev-key-change-in-production')
 
-ALLOWED_HOSTS = ["*"]   # ← Restrict to your domain in production, e.g. ["yourdomain.com", "www.yourdomain.com"]
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+
+ALLOWED_HOSTS = ['*']  # We'll tighten this on PythonAnywhere
 
 
 # ── Installed Apps ────────────────────────────────────────────────────────────
