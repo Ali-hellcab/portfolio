@@ -1,0 +1,567 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block title %}Carl-Abu'bakar El-amin Igbafe — Backend & ML Engineer{% endblock %}  {# ← Carl-Abu'bakar El-amin Igbafe #}
+{% block meta_description %}Portfolio of Carl-Abu'bakar El-amin Igbafe, a Backend Engineer and Machine Learning Engineer specialising in Django, Python, and deep learning systems.{% endblock %}
+
+{% block content %}
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     §1  HERO SECTION
+     ══════════════════════════════════════════════════════════════════════════ -->
+<section id="hero"
+         class="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
+
+  <!-- Decorative blobs -->
+  <div class="absolute top-1/4 -left-24 w-72 h-72 rounded-full
+              bg-[#00D4AA]/10 blur-3xl pointer-events-none animate-pulse-slow"></div>
+  <div class="absolute bottom-1/4 -right-24 w-96 h-96 rounded-full
+              bg-indigo-500/8 blur-3xl pointer-events-none animate-pulse-slow"
+       style="animation-delay: 1.5s;"></div>
+
+  <div class="max-w-5xl mx-auto text-center relative z-10">
+
+    <!-- Status badge -->
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full
+                bg-[#00D4AA]/10 border border-[#00D4AA]/20 text-[#00D4AA]
+                text-xs font-mono font-medium mb-8
+                animate-fade-in"
+         style="animation-delay:0.1s">
+      <span class="w-2 h-2 rounded-full bg-[#00D4AA] animate-pulse"></span>
+      Open to opportunities  {# ← Change to "Currently employed" or similar #}
+    </div>
+
+    <!-- Main headline  ← YOUR tagline / headline -->
+    <h1 class="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl
+               leading-tight tracking-tight mb-6 animate-fade-up"
+        style="animation-delay:0.2s">
+      Backend &amp;<br/>
+      <span class="gradient-text">Machine Learning</span><br/>
+      Engineer
+    </h1>
+
+    <!-- Bio paragraph  ← YOUR bio (keep it punchy — 2–3 sentences) -->
+    <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto
+              leading-relaxed mb-10 animate-fade-up"
+       style="animation-delay:0.35s">
+      I build robust, scalable server-side systems with <strong class="text-gray-800 dark:text-gray-200">Python &amp; Django</strong>
+      and train production-ready machine learning models — from <strong class="text-gray-800 dark:text-gray-200">CNNs</strong>
+      to <strong class="text-gray-800 dark:text-gray-200">LSTMs</strong> — that solve real-world problems.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up"
+         style="animation-delay:0.5s">
+
+      <!-- Primary CTA — scroll to projects -->
+      <a href="#projects"
+         class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl
+                bg-[#00D4AA] hover:bg-[#00B894] text-gray-950 font-semibold text-sm
+                shadow-lg shadow-[#00D4AA]/25 hover:shadow-xl hover:shadow-[#00D4AA]/30
+                transition-all duration-200 hover:-translate-y-0.5">
+        View Projects
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path d="M19 9l-7 7-7-7"/>
+        </svg>
+      </a>
+
+      <!-- Secondary CTA — download CV  ← YOUR CV URL (put file in /static/ or link Dropbox/Drive) -->
+      <a href="/static/portfolio/cv.pdf"
+         download
+         class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl
+                border border-gray-300 dark:border-gray-700
+                text-gray-700 dark:text-gray-300 font-semibold text-sm
+                hover:border-[#00D4AA] hover:text-[#00D4AA]
+                transition-all duration-200 hover:-translate-y-0.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        Download CV
+      </a>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="mt-20 flex flex-col items-center gap-2 text-gray-400 text-xs animate-fade-in"
+         style="animation-delay: 1s">
+      <span>Scroll to explore</span>
+      <div class="w-px h-12 bg-gradient-to-b from-gray-300 dark:from-gray-600 to-transparent"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     §2  ABOUT ME — Two Pillars
+     ══════════════════════════════════════════════════════════════════════════ -->
+<section id="about" class="py-24 px-4">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Section header -->
+    <div class="mb-16 reveal">
+      <p class="font-mono text-sm text-[#00D4AA] mb-3">// about_me</p>
+      <h2 class="font-display font-bold text-4xl sm:text-5xl dark:text-white">
+        Two disciplines.<br/>One engineer.
+      </h2>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8">
+
+      <!-- ── Pillar 1: Backend Engineering ── -->
+      <div class="glass rounded-2xl p-8 lg:p-10 reveal hover:-translate-y-1 transition-transform duration-300">
+
+        <!-- Icon -->
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00D4AA] to-teal-400
+                    flex items-center justify-center mb-6 shadow-lg shadow-[#00D4AA]/20">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+
+        <!-- ← YOUR backend bio/experience -->
+        <h3 class="font-display font-bold text-2xl mb-1 dark:text-white">Backend Engineer</h3>
+        <p class="text-sm font-mono text-[#00D4AA] mb-4">Python · Django · APIs · Databases</p>
+
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+          {# ← Replace with YOUR backend experience summary (3–5 sentences) #}
+          I design and build server-side systems that are fast, secure, and built to scale.
+          My core stack is <strong class="text-gray-800 dark:text-gray-200">Python + Django</strong>,
+          which I pair with <strong class="text-gray-800 dark:text-gray-200">PostgreSQL</strong> for
+          relational data modelling and Redis for caching &amp; task queues.
+          I'm experienced in designing RESTful and GraphQL APIs consumed by web and mobile clients,
+          and comfortable with cloud deployments on AWS and Railway.
+        </p>
+
+        <!-- Skill chips  ← Add/remove your actual skills -->
+        <!-- Skill chips -->
+<div class="flex flex-wrap gap-2">
+          {% for skill in ml_skills %}
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-medium
+                       bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300
+                       border border-gray-200 dark:border-gray-700">{{ skill }}</span>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- ── Pillar 2: ML Engineering ── -->
+      <div class="glass rounded-2xl p-8 lg:p-10 reveal hover:-translate-y-1 transition-transform duration-300"
+           style="transition-delay: 0.1s">
+
+        <!-- Icon -->
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500
+                    flex items-center justify-center mb-6 shadow-lg shadow-indigo-500/20">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18"/>
+          </svg>
+        </div>
+
+        <!-- ← YOUR ML bio/experience -->
+        <h3 class="font-display font-bold text-2xl mb-1 dark:text-white">ML Engineer</h3>
+        <p class="text-sm font-mono text-indigo-400 mb-4">PyTorch · TensorFlow · Deep Learning · NLP</p>
+
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+          {# ← Replace with YOUR ML experience summary (3–5 sentences) #}
+          I build and deploy predictive models that go beyond notebooks and run in production.
+          I have hands-on experience with <strong class="text-gray-800 dark:text-gray-200">CNNs</strong> for image classification,
+          <strong class="text-gray-800 dark:text-gray-200">LSTMs</strong> for time-series and NLP tasks,
+          and transformer-based fine-tuning with HuggingFace.
+          I treat data preprocessing and feature engineering as first-class engineering work,
+          not an afterthought, and I ship models behind Django/FastAPI endpoints.
+        </p>
+
+        <!-- Skill chips  ← Add/remove your actual skills -->
+        <div class="flex flex-wrap gap-2">
+    {% for skill in ml_skills %}
+    <span class="px-3 py-1 rounded-full text-xs font-mono font-medium
+                 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300
+                 border border-gray-200 dark:border-gray-700">
+        {{ skill }}
+    </span>
+    {% endfor %}
+</div>
+      </div>
+    </div>
+
+    <!-- ── Stats strip  ← Update numbers to match your experience ── -->
+    <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+      {% for stat in stats %}
+      <div class="glass rounded-xl p-5 text-center reveal">
+        <p class="font-display font-extrabold text-3xl gradient-text">{{ stat.value }}</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">{{ stat.label }}</p>
+      </div>
+      {% empty %}
+      <!-- Fallback hardcoded stats if context doesn't supply them -->
+      <div class="glass rounded-xl p-5 text-center reveal">
+        <p class="font-display font-extrabold text-3xl gradient-text">2+</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Years Experience</p>
+      </div>
+      <div class="glass rounded-xl p-5 text-center reveal" style="transition-delay:.1s">
+        <p class="font-display font-extrabold text-3xl gradient-text">10+</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Projects Shipped</p>
+      </div>
+      <div class="glass rounded-xl p-5 text-center reveal" style="transition-delay:.2s">
+        <p class="font-display font-extrabold text-3xl gradient-text">5+</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">ML Models Deployed</p>
+      </div>
+      <div class="glass rounded-xl p-5 text-center reveal" style="transition-delay:.3s">
+        <p class="font-display font-extrabold text-3xl gradient-text">3+</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Open Source Repos</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     §3  PROJECTS SHOWCASE
+     ══════════════════════════════════════════════════════════════════════════ -->
+<section id="projects" class="py-24 px-4 bg-gray-50/60 dark:bg-gray-900/40">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Section header -->
+    <div class="mb-6 reveal">
+      <p class="font-mono text-sm text-[#00D4AA] mb-3">// projects</p>
+      <h2 class="font-display font-bold text-4xl sm:text-5xl dark:text-white">Things I've built</h2>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="flex flex-wrap gap-2 mb-12 reveal" id="filter-tabs">
+      <button data-filter="all"
+              class="filter-btn active-filter px-4 py-1.5 rounded-full text-sm font-medium
+                     transition-all duration-200">All</button>
+      <button data-filter="Backend"
+              class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium
+                     transition-all duration-200">Backend</button>
+      <button data-filter="ML"
+              class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium
+                     transition-all duration-200">Machine Learning</button>
+      <button data-filter="Fullstack"
+              class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium
+                     transition-all duration-200">Full Stack</button>
+    </div>
+
+    <!-- Projects Grid — loops over Django queryset -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+
+      {% for project in projects %}
+      <!-- Project Card -->
+      <article class="project-card glass rounded-2xl overflow-hidden reveal
+                      hover:-translate-y-2 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/30
+                      transition-all duration-300 flex flex-col"
+               data-category="{{ project.category }}"
+               style="transition-delay: {{ forloop.counter0|divisibleby:3|yesno:'0s,0.1s,0.2s' }}">
+
+        <!-- Project image -->
+        <div class="relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 aspect-[16/9]">
+          {% if project.image %}
+          <img src="{{ project.image.url }}"
+               alt="{{ project.title }}"
+               class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+               loading="lazy" />
+          {% else %}
+          <!-- Placeholder when no image uploaded -->
+          <div class="w-full h-full flex items-center justify-center">
+            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+            </svg>
+          </div>
+          {% endif %}
+
+          <!-- Category badge -->
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full text-xs font-mono font-medium
+                       {% if project.category == 'ML' %}
+                       bg-indigo-500/20 text-indigo-300 border border-indigo-500/30
+                       {% elif project.category == 'Fullstack' %}
+                       bg-purple-500/20 text-purple-300 border border-purple-500/30
+                       {% else %}
+                       bg-[#00D4AA]/20 text-[#00D4AA] border border-[#00D4AA]/30
+                       {% endif %}">
+            {{ project.get_category_display }}
+          </span>
+        </div>
+
+        <!-- Card body -->
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display font-bold text-lg mb-2 dark:text-white leading-snug">
+            {{ project.title }}
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-1 mb-4">
+            {{ project.description }}
+          </p>
+
+          <!-- Tech tags -->
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            {% for tag in project.tech_list %}
+            <span class="px-2 py-0.5 rounded text-xs font-mono
+                         bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
+              {{ tag }}
+            </span>
+            {% endfor %}
+          </div>
+
+          <!-- Action buttons -->
+          <div class="flex gap-3 pt-4 border-t border-gray-100 dark:border-gray-800">
+            {% if project.github_link %}
+            <a href="{{ project.github_link }}"
+               target="_blank" rel="noopener noreferrer"
+               class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg
+                      text-xs font-medium border border-gray-300 dark:border-gray-700
+                      text-gray-700 dark:text-gray-300
+                      hover:border-[#00D4AA] hover:text-[#00D4AA] transition-colors">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              Code
+            </a>
+            {% endif %}
+            {% if project.live_link %}
+            <a href="{{ project.live_link }}"
+               target="_blank" rel="noopener noreferrer"
+               class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg
+                      text-xs font-medium bg-[#00D4AA] hover:bg-[#00B894] text-gray-950 font-semibold
+                      transition-colors">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              Live Demo
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </article>
+      {% empty %}
+      <!-- Empty state — shown when no projects exist in DB yet -->
+      <div class="col-span-full text-center py-24 text-gray-400">
+        <svg class="w-12 h-12 mx-auto mb-4 opacity-40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 3H8L6 7h12l-2-4z"/>
+        </svg>
+        <p class="font-display text-lg">No projects yet</p>
+        <p class="text-sm mt-1">Add your first project via the <a href="/admin/" class="text-[#00D4AA] underline">admin panel</a>.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     §4  CONTACT SECTION
+     ══════════════════════════════════════════════════════════════════════════ -->
+<section id="contact" class="py-24 px-4">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Section header -->
+    <div class="mb-16 reveal">
+      <p class="font-mono text-sm text-[#00D4AA] mb-3">// contact</p>
+      <h2 class="font-display font-bold text-4xl sm:text-5xl dark:text-white">
+        Let's work together
+      </h2>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-10">
+
+      <!-- Left — copy text + social handles (2 cols) -->
+      <div class="lg:col-span-2 space-y-8 reveal">
+        <!-- ← YOUR contact intro copy -->
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          Whether you need a scalable backend, a production ML pipeline, or both —
+          I'd love to hear about your project. Drop me a message and I'll get back to you
+          as soon as possible.
+        </p>
+
+        <!-- Social handles  ← YOUR details -->
+        <div class="space-y-4">
+          <a href="mailto:elamincarlabubakar@gmail.com"  {# ← YOUR email #}
+             class="flex items-center gap-3 group text-gray-600 dark:text-gray-400 hover:text-[#00D4AA] transition-colors">
+            <span class="w-9 h-9 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center
+                         group-hover:bg-[#00D4AA]/10 transition-colors flex-shrink-0">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </span>
+            <span class="text-sm font-mono">elamincarlabubakar@gmail.com</span>  {# ← YOUR email #}
+          </a>
+
+          <a href="https://github.com/Ali-hellcab/my_portfolio"  {# ← YOUR URL #}
+             target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-3 group text-gray-600 dark:text-gray-400 hover:text-[#00D4AA] transition-colors">
+            <span class="w-9 h-9 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center
+                         group-hover:bg-[#00D4AA]/10 transition-colors flex-shrink-0">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </span>
+            <span class="text-sm font-mono">github.com/Ali-hellcab/my_portfolio</span>  {# ← YOUR handle #}
+          </a>
+
+          <a href="https://linkedin.com/in/el-amin-carl-abu-bakar-8a7b23394"  {# ← YOUR URL #}
+             target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-3 group text-gray-600 dark:text-gray-400 hover:text-[#0A66C2] transition-colors">
+            <span class="w-9 h-9 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center
+                         group-hover:bg-blue-500/10 transition-colors flex-shrink-0">
+              <svg class="w-4 h-4 text-[#0A66C2]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </span>
+            <span class="text-sm font-mono">linkedin.com/in/el-amin-carl-abu-bakar-8a7b23394</span>  {# ← YOUR handle #}
+          </a>
+        </div>
+      </div>
+
+      <!-- Right — Contact Form (3 cols) -->
+      <div class="lg:col-span-3 reveal" style="transition-delay: 0.15s">
+        <form id="contact-form"
+              class="glass rounded-2xl p-8 space-y-5">
+          {% csrf_token %}
+
+          <!-- Name -->
+          <div>
+            <label for="name" class="block text-xs font-mono text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wider">Name</label>
+            <input type="text" id="name" name="name" required
+                   placeholder="Your full name"
+                   class="w-full px-4 py-3 rounded-xl text-sm
+                          bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700
+                          text-gray-800 dark:text-gray-100 placeholder-gray-400
+                          focus:outline-none focus:ring-2 focus:ring-[#00D4AA]/50 focus:border-[#00D4AA]
+                          transition-colors" />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-xs font-mono text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wider">Email</label>
+            <input type="email" id="email" name="email" required
+                   placeholder="you@company.com"
+                   class="w-full px-4 py-3 rounded-xl text-sm
+                          bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700
+                          text-gray-800 dark:text-gray-100 placeholder-gray-400
+                          focus:outline-none focus:ring-2 focus:ring-[#00D4AA]/50 focus:border-[#00D4AA]
+                          transition-colors" />
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-xs font-mono text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wider">Message</label>
+            <textarea id="message" name="message" rows="5" required
+                      placeholder="Tell me about your project or idea..."
+                      class="w-full px-4 py-3 rounded-xl text-sm resize-none
+                             bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700
+                             text-gray-800 dark:text-gray-100 placeholder-gray-400
+                             focus:outline-none focus:ring-2 focus:ring-[#00D4AA]/50 focus:border-[#00D4AA]
+                             transition-colors"></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" id="submit-btn"
+                  class="w-full py-3.5 rounded-xl font-semibold text-sm
+                         bg-[#00D4AA] hover:bg-[#00B894] text-gray-950
+                         shadow-lg shadow-[#00D4AA]/20 hover:shadow-xl hover:shadow-[#00D4AA]/25
+                         transition-all duration-200 hover:-translate-y-0.5
+                         disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0">
+            Send Message
+          </button>
+
+          <!-- Form feedback message -->
+          <div id="form-feedback" class="hidden text-center text-sm py-2 px-4 rounded-lg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+
+{% block extra_scripts %}
+<script>
+  /* ── Project Filter Tabs ─────────────────────────────────────────────────── */
+  const filterBtns   = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll(".project-card");
+
+  // Style for active vs inactive filter buttons
+  function setFilterStyle(btn, isActive) {
+    if (isActive) {
+      btn.classList.add("bg-[#00D4AA]", "text-gray-950", "shadow-md", "shadow-[#00D4AA]/20");
+      btn.classList.remove("text-gray-500", "dark:text-gray-400", "hover:text-[#00D4AA]", "border", "border-gray-200", "dark:border-gray-700");
+    } else {
+      btn.classList.remove("bg-[#00D4AA]", "text-gray-950", "shadow-md", "shadow-[#00D4AA]/20");
+      btn.classList.add("text-gray-500", "dark:text-gray-400", "hover:text-[#00D4AA]", "border", "border-gray-200", "dark:border-gray-700");
+    }
+  }
+
+  // Initialise button styles
+  filterBtns.forEach(btn => setFilterStyle(btn, btn.dataset.filter === "all"));
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+      filterBtns.forEach(b => setFilterStyle(b, b === btn));
+
+      projectCards.forEach(card => {
+        const match = filter === "all" || card.dataset.category === filter;
+        card.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+        if (match) {
+          card.style.opacity = "1";
+          card.style.transform = "";
+          card.style.display = "";
+        } else {
+          card.style.opacity = "0";
+          card.style.transform = "scale(0.95)";
+          setTimeout(() => { if (card.dataset.category !== filter && filter !== "all") card.style.display = "none"; }, 300);
+        }
+      });
+    });
+  });
+
+
+  /* ── Contact Form AJAX Submission ────────────────────────────────────────── */
+  const form       = document.getElementById("contact-form");
+  const submitBtn  = document.getElementById("submit-btn");
+  const feedback   = document.getElementById("form-feedback");
+
+  function showFeedback(ok, msg) {
+    feedback.textContent = msg;
+    feedback.className   = `text-center text-sm py-2 px-4 rounded-lg ${
+      ok ? "bg-[#00D4AA]/10 text-[#00D4AA] border border-[#00D4AA]/20"
+         : "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-800"
+    }`;
+    feedback.classList.remove("hidden");
+    setTimeout(() => feedback.classList.add("hidden"), 6000);
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    submitBtn.disabled    = true;
+    submitBtn.textContent = "Sending…";
+
+    const payload = {
+      name:    document.getElementById("name").value,
+      email:   document.getElementById("email").value,
+      message: document.getElementById("message").value,
+    };
+
+    try {
+      const res  = await fetch("{% url 'portfolio:contact' %}", {
+        method:  "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken":  document.querySelector("[name=csrfmiddlewaretoken]").value,
+        },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      if (data.ok) {
+        showFeedback(true, data.message);
+        form.reset();
+      } else {
+        showFeedback(false, data.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      showFeedback(false, "Network error. Please check your connection.");
+    } finally {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = "Send Message";
+    }
+  });
+</script>
+{% endblock %}

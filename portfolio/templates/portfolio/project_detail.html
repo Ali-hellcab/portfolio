@@ -1,0 +1,80 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block title %}{{ project.title }} — Your Name{% endblock %}
+{% block meta_description %}{{ project.description }}{% endblock %}
+
+{% block content %}
+<section class="py-24 px-4">
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Back link -->
+    <a href="{% url 'portfolio:index' %}#projects"
+       class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#00D4AA] transition-colors mb-10">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      Back to Projects
+    </a>
+
+    <!-- Hero image -->
+    {% if project.image %}
+    <div class="rounded-2xl overflow-hidden mb-10 shadow-xl aspect-[16/7]">
+      <img src="{{ project.image.url }}" alt="{{ project.title }}"
+           class="w-full h-full object-cover" />
+    </div>
+    {% endif %}
+
+    <!-- Header -->
+    <div class="mb-8">
+      <span class="inline-block px-3 py-1 rounded-full text-xs font-mono font-medium mb-4
+                   {% if project.category == 'ML' %}bg-indigo-500/10 text-indigo-400
+                   {% elif project.category == 'Fullstack' %}bg-purple-500/10 text-purple-400
+                   {% else %}bg-[#00D4AA]/10 text-[#00D4AA]{% endif %}">
+        {{ project.get_category_display }}
+      </span>
+      <h1 class="font-display font-extrabold text-4xl sm:text-5xl dark:text-white mb-4">
+        {{ project.title }}
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">{{ project.description }}</p>
+    </div>
+
+    <!-- Tech tags -->
+    <div class="flex flex-wrap gap-2 mb-10">
+      {% for tag in project.tech_list %}
+      <span class="px-3 py-1 rounded-full text-xs font-mono
+                   bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400
+                   border border-gray-200 dark:border-gray-700">{{ tag }}</span>
+      {% endfor %}
+    </div>
+
+    <!-- Links -->
+    <div class="flex gap-4 mb-12">
+      {% if project.github_link %}
+      <a href="{{ project.github_link }}" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
+                border border-gray-300 dark:border-gray-700
+                text-sm font-medium text-gray-700 dark:text-gray-300
+                hover:border-[#00D4AA] hover:text-[#00D4AA] transition-colors">
+        View Code
+      </a>
+      {% endif %}
+      {% if project.live_link %}
+      <a href="{{ project.live_link }}" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
+                bg-[#00D4AA] text-gray-950 text-sm font-semibold
+                hover:bg-[#00B894] transition-colors">
+        Live Demo
+      </a>
+      {% endif %}
+    </div>
+
+    <!-- Body / long description -->
+    {% if project.body %}
+    <div class="glass rounded-2xl p-8 prose prose-gray dark:prose-invert max-w-none">
+      <pre class="whitespace-pre-wrap font-body text-sm leading-relaxed">{{ project.body }}</pre>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
